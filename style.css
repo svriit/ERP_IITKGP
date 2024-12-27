@@ -1,0 +1,100 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Login Section Styles */
+.login-container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.login-container h2 {
+    text-align: center;
+}
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+.login-container label {
+    margin: 10px 0 5px;
+}
+.login-container input {
+    padding: 8px;
+    font-size: 16px;
+}
+.login-container button {
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+#login-message {
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Dashboard Styles */
+.container {
+    display: flex;
+}
+.header {
+    text-align: center; /* Centers child elements horizontally */
+    padding: 20px; /* Optional: Adds some padding */
+}
+
+.logo-img {
+    width: 150px; /* Adjust the size as needed */
+    height: auto;
+}
+
+.logo-text {
+    font-size: 24px;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+.sidebar h3 {
+    margin-top: 0;
+}
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+.sidebar-item {
+    padding: 10px;
+    cursor: pointer;
+}
+.sidebar-item.active {
+    background-color: #ddd;
+}
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+.main-heading, .section-heading {
+    margin-top: 0;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+table, th, td {
+    border: 1px solid #ccc;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+.logo-text {
+    font-size: 24px;
+    margin: 0;
+}

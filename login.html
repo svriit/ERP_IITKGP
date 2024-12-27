@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IIT Kharagpur - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts for Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset some default styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Apply a background color and font family */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f6f9;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container to hold header and form */
+        .container {
+            background-color: #ffffff;
+            padding: 40px 60px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            position: relative; /* To position preloader inside */
+        }
+
+        /* Header styling */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            color: #1e3a8a; /* IIT Kharagpur's official color */
+            margin: 0;
+        }
+
+        /* Login Form Styling */
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1e3a8a;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333333;
+            font-weight: 500;
+        }
+
+        .required {
+            color: red;
+            margin-left: 2px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #1e3a8a;
+            outline: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #1e3a8a;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #162d6f;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* Preloader Overlay Styling */
+        .preloader-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            z-index: 1000;
+            display: none; /* Hidden by default */
+        }
+
+        .spinner {
+            border: 8px solid #f3f3f3; /* Light grey */
+            border-top: 8px solid #1e3a8a; /* Blue */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .preloader-text {
+            font-size: 18px;
+            color: #333333;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .logo-text {
+                font-size: 18px;
+            }
+
+            .login-form h2 {
+                font-size: 22px;
+            }
+
+            .form-group input {
+                font-size: 14px;
+            }
+
+            .btn {
+                font-size: 14px;
+            }
+
+            .preloader-text {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Preloader Overlay -->
+        <div class="preloader-overlay" id="preloader">
+            <div class="spinner"></div>
+            <div class="preloader-text" id="preloaderText">Fetching user details...</div>
+        </div>
+
+        <!-- Header with Logo and Text -->
+        <header class="header">
+            <div class="logo">
+                <img src="logo.png" alt="IIT Kharagpur Logo" class="logo-img">
+                <h1 class="logo-text">Indian Institute of Technology Kharagpur</h1>
+            </div>
+        </header>
+
+        <!-- Login Form -->
+        <div class="login-form">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email<span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="Institute Email ID" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password<span class="required">*</span></label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <label for="rollno">Roll Number<span class="required">*</span></label>
+                    <input type="text" id="rollno" name="rollno" placeholder="Roll Number" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <p id="errorMsg" class="error-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Sample user credentials (for demonstration purposes)
+        const users = [
+            {
+                email: "svr2303@kgpian.iitkgp.ac.in",
+                password: "Gvrgps@2708",
+                rollno: "20IM30005"
+            },
+            {
+                email: "student2@iitkgp.ac.in",
+                password: "securepass456",
+                rollno: "KGP002"
+            }
+            // Add more user objects as needed
+        ];
+
+        // Function to handle form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent form from submitting
+
+            // Get form values
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const rollno = document.getElementById('rollno').value.trim();
+
+            // Validate credentials
+            const user = users.find(user => 
+                user.email === email && 
+                user.password === password && 
+                user.rollno === rollno
+            );
+
+            if (user) {
+                // Credentials are correct
+                // Show preloader
+                const preloader = document.getElementById('preloader');
+                const preloaderText = document.getElementById('preloaderText');
+                preloader.style.display = 'flex';
+
+                // Sequence of fetching messages
+                setTimeout(() => {
+                    preloaderText.textContent = "Fetching grades...";
+                }, 2500); // Change text after 2.5 seconds
+
+                // Redirect after 5 seconds
+                setTimeout(() => {
+                    window.location.href = "dashboard.html";
+                }, 5000);
+            } else {
+                // Credentials are incorrect
+                // Display error message
+                document.getElementById('errorMsg').textContent = "Enter your Institute email ID, password, or roll number.";
+            }
+        });
+    </script>
+</body>
+</html>
